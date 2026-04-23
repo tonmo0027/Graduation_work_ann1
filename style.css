@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh;
+    background-color: #f9fafb;
+}
+
+/* ヘッダー */
+header {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* メインコンテンツ */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* グリッド */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 作品カード */
+.artwork-card {
+    background: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.artwork-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.artwork-image-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #e5e7eb;
+    overflow: hidden;
+}
+
+.artwork-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.artwork-card:hover .artwork-image {
+    transform: scale(1.05);
+}
+
+.artwork-info {
+    padding: 1rem;
+}
+
+.artwork-title {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.artwork-meta {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+/* モーダル */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    border-radius: 0.75rem;
+    max-width: 56rem;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 51;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    transition: background 0.2s;
+}
+
+.modal-close:hover {
+    background: white;
+}
+
+.modal-image-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #e5e7eb;
+    overflow: hidden;
+}
+
+.modal-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-category-badge {
+    margin-bottom: 1rem;
+}
+
+.modal-category-badge span {
+    display: inline-block;
+    background-color: #dbeafe;
+    color: #1e40af;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.modal-body h2 {
+    font-size: 1.875rem;
+    margin-bottom: 0.75rem;
+}
+
+.modal-author {
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.modal-description {
+    color: #374151;
+    line-height: 1.6;
+}
